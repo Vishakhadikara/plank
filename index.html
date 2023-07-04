@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html style="background: black;" lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -22,15 +22,15 @@
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <body>
-    <div class="webgl-content">
+  <body style="background: black;">
+    <div style="background: black;" class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
+      <div style="background: black;" class="footer">
+        <div style="visibility: hidden;" class="webgl-logo"></div>
         <button class="entervr" id="entervr" value="Enter VR" disabled>VR</button>
         <button class="enterar" id="enterar" value="Enter AR" disabled>AR</button>
-        <div class="webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
-        <div class="title">PLANK_V6</div>
+        <div style="visibility: hidden;" class="webxr-link">Using <a href="https://github.com/De-Panther/unity-webxr-export" target="_blank" title="WebXR Export">WebXR Export</a></div>
+        <div style="visibility: hidden;" class="title">PLANK_V6</div>
       </div>
     </div>
     <script>
@@ -49,7 +49,12 @@
       }, false);
       enterVRButton.addEventListener('click', function (event) {
         unityInstance.Module.WebXR.toggleVR();
+        hidePanel();
       }, false);
+
+      function hidePanel(){
+        unityInstance.SendMessage('cover','HideCover')
+      }
     </script>
   </body>
 </html>
